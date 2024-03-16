@@ -1,18 +1,21 @@
 .media {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 200px;
     padding: 5px;
     margin: 5px 0;
     background-color: #282c34;
     border-radius: 10px;
     position: relative;
+    cursor: pointer;
 }
 
 .media:hover {
     background-color: #fff;
     color: #000;
 }
+
 
 @media (max-width: 550px) {
     .media {
@@ -30,7 +33,8 @@
     font-size: 17px;
     padding: 8px 0;
 }
-.subtitle{
+
+.subtitle {
     display: flex;
     justify-content: space-between;
     padding: 0 2px;

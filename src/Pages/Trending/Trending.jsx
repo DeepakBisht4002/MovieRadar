@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import './Trending.css'
-import SingleContent from '../../components/SingleContent/SingleContent';
-import CustomPagination from '../../components/Pagination/CustomPagination';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./Trending.css";
+import SingleContent from "../../components/SingleContent/SingleContent";
+import CustomPagination from "../../components/Pagination/CustomPagination";
 
 function Trending() {
   const [content, setContent] = useState([]);
@@ -10,24 +10,21 @@ function Trending() {
   const apikey = import.meta.env.VITE_MOVIEDB_API_KEY;
 
   const fetchTrending = async () => {
-    const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${apikey}&page=${page}`);
-    setContent(data.results)
-  }
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/trending/all/day?api_key=${apikey}&page=${page}`
+    );
+    setContent(data.results);
+  };
   useEffect(() => {
-    fetchTrending()
-
-  }, [page])
-
-
-
-
+    fetchTrending();
+  }, [page]);
 
   return (
     <div>
       <span className="pageTitle">Trending</span>
-      <div className='trending'>
-        {
-          content && content.map((c) => (
+      <div className="trending">
+        {content &&
+          content.map((c) => (
             <SingleContent
               key={c.id}
               id={c.id}
@@ -37,13 +34,11 @@ function Trending() {
               media_type={c.media_type}
               vote_average={c.vote_average}
             />
-          ))
-        }
-
+          ))}
       </div>
-      <CustomPagination setPage={setPage}/>
+      <CustomPagination setPage={setPage} />
     </div>
-  )
+  );
 }
 
-export default Trending
+export default Trending;
