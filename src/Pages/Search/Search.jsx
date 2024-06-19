@@ -20,7 +20,8 @@ function Search() {
   const fetchSearch = async () => {
     try {
       const { data } = await axios.get(
-        `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"
+        `https://api.themoviedb.org/3/search/${
+          type ? "tv" : "movie"
         }?api_key=${apikey}&language=en-US&query=${searchText}&page=${page}&include_adult=false`
       );
       setContent(data.results);
@@ -43,10 +44,13 @@ function Search() {
         <TextField
           style={{ flex: 1 }}
           className="searchBox"
-          label="Filled"
+          label="Search"
           variant="standard"
-          InputProps={{ style: { color: 'white', outline: 'white' } }}
+          InputProps={{ style: { color: "white" } }}
           onChange={(e) => setSearchText(e.target.value)}
+          InputLabelProps={{
+            style: { color: "white" },
+          }}
         />
         <Button
           variant="contained"
@@ -66,8 +70,8 @@ function Search() {
         }}
         style={{ display: "flex", justifyContent: "space-between" }}
       >
-        <Tab style={{ width: "50%" }} label="Movies" />
-        <Tab style={{ width: "50%" }} label="tv series" />
+        <Tab style={{ width: "50%", color: "white" }} label="Movies" />
+        <Tab style={{ width: "50%", color: "white" }} label="tv series" />
       </Tabs>
 
       <div className="trending">
