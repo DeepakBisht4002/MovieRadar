@@ -24,7 +24,7 @@ const Movies = () => {
   }, [page, genreforURL])
   return (
     <div className='movies'>
-      <span className="pageTitle">Movie</span>
+      <span className="pageTitle">Movies</span>
       <Genres
         type='movie'
         selectedGenres={selectedGenres}
